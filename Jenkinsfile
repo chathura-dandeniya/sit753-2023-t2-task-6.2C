@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the code'
+                echo 'Tool: Maven'
             }
         }
         
@@ -16,6 +17,7 @@ pipeline {
         stage('Unit and Integration Tests') {
             steps {
                 echo 'Running unit and integration tests'
+                echo 'Tool: JUnit for unit tests, TestNG for integration tests'
             }
         }
         
@@ -23,6 +25,7 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 echo 'Performing code analysis'
+                echo 'Tool: SonarQube'
             }
         }
         
@@ -30,6 +33,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo 'Performing security scan'
+                echo 'Tool: OWASP ZAP'
             }
         }
         
@@ -37,6 +41,7 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to Staging Environment'
+                echo 'Tool: AWS EC2 instance (for staging) '
             }
         }
         
@@ -44,6 +49,7 @@ pipeline {
         stage('Integration Tests on Staging') {
             steps {
                 echo 'Running integration tests on Staging'
+                echo 'Tool: Selenium for UI testing, Postman for API testing'
             }
         }
         
@@ -51,6 +57,7 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo 'Deploying to Production Environment'
+                echo 'Tool: AWS EC2 instance (for production)'
             }
         }
     }
