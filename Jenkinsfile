@@ -2,11 +2,23 @@ pipeline {
     agent any
     
     stages {
-        
+
         stage('Build') {
             steps {
                 echo 'Building the code'
                 //sh 'mvn clean install'
+            }
+            post{
+                success{
+                    echo 'Build Successful - Sending Email Notification'
+                    mail to: "chaturadh@gmail.com",
+                    subject: "Build Status of ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: "Build was Successful"
+                }
+                failure{
+                    echo 'Build Failed - Sending Email Notification'
+                    //sh './send-notification.sh Failure'
+                }
             }
         }
         
